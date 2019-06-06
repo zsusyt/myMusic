@@ -19,10 +19,8 @@ class AllMusicSpider(scrapy.Spider):
 
         for music in response.css('ul.musiclist li'):
             item['imgSrc'] = music.css('div.imgbox a img::attr(src)').get()
-            item['title'] = {
-                'ch': music.css('div.conbox h1 a::text').get(),
-                'en': music.css('div.conbox h2 a::text').get()
-            }
+            item['titleCn'] = music.css('div.conbox h1 a::text').get()
+            item['titleEn'] = music.css('div.conbox h2 a::text').get()
             item['url'] = music.css('div.conbox h1 a::attr(href)').get()
             yield item
 

@@ -14,6 +14,14 @@ BOT_NAME = 'myMusic'
 SPIDER_MODULES = ['myMusic.spiders']
 NEWSPIDER_MODULE = 'myMusic.spiders'
 
+CONNECTION_STRING = "{drivername}://{user}:{passwd}@{host}:{port}/{db_name}?charset=utf8".format(
+    drivername="mysql",
+    user="crawler",
+    passwd="123456",
+    host="localhost",
+    port="3306",
+    db_name="music",
+)
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'myMusic (+http://www.yourdomain.com)'
@@ -64,9 +72,9 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'myMusic.pipelines.MymusicPipeline': 300,
-#}
+ITEM_PIPELINES = {
+   'myMusic.pipelines.MymusicPipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html

@@ -13,7 +13,9 @@ class MymusicItem(scrapy.Item):
     # name = scrapy.Field()
     # 图片地址
     imgSrc = scrapy.Field()
-    # 标题
-    title = scrapy.Field()
+    # 标题中文
+    titleCn = scrapy.Field()
+    # 标题英文
+    titleEn = scrapy.Field()
     # 详情页url
     url = scrapy.Field()
