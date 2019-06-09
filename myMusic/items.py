@@ -8,7 +8,7 @@
 import scrapy
 
 
-class MymusicItem(scrapy.Item):
+class AlbumItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
     # 图片地址
@@ -17,5 +17,16 @@ class MymusicItem(scrapy.Item):
     titleCn = scrapy.Field()
     # 标题英文
     titleEn = scrapy.Field()
-    # 详情页url
-    url = scrapy.Field()
+    # 是否是album
+    isAlbum = scrapy.Field()
+
+
+class SongItem(scrapy.Item):
+    # 低质量地址
+    lowUrl = scrapy.Field()
+    # 高质量地址
+    highUrl = scrapy.Field()
+    # 曲子的标题
+    subTitle = scrapy.Field()
+    # 图片地址
+    imgSrc = scrapy.Field()

@@ -27,7 +27,7 @@ CONNECTION_STRING = "{drivername}://{user}:{passwd}@{host}:{port}/{db_name}?char
 #USER_AGENT = 'myMusic (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
