@@ -36,6 +36,7 @@ class Song(DeclarativeBase):
     highUrl = Column('highUrl', Text())
     lowUrl = Column('lowUrl', Text())
     subTitle = Column('subTitle', Text())
+    serial = Column('serial', Integer)
     album_id = Column(Integer, ForeignKey('album.id'))
     # album = relationship('Album')
 

@@ -58,6 +58,7 @@ class MymusicPipeline(object):
             song.subTitle = item["subTitle"]
             song.lowUrl = item["lowUrl"]
             song.highUrl = item["highUrl"]
+            song.serial = item['serial']
             song.album_id = query.first().id
             try:
                 session.add(song)

@@ -30,3 +30,5 @@ class SongItem(scrapy.Item):
     subTitle = scrapy.Field()
     # 图片地址
     imgSrc = scrapy.Field()
+    # 序号
+    serial = scrapy.Field()

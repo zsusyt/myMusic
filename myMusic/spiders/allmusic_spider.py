@@ -38,14 +38,16 @@ class AllMusicSpider(scrapy.Spider):
         midNoSpace = re.sub(r'\s*', '', mid)
         result = json.loads(re.search(r'\[.*\]', midNoSpace).group())
 
-        for title_id in result:
+        for index, title_id in enumerate(result):
             request = scrapy.Request("http://vdn.apps.cntv.cn/api/getIpadVideoInfo.do?pid=" + title_id, callback=self.parse_song)
             request.meta['pre_item'] = pre_item
+            request.meta['serial'] = index
             yield request
 
 
     def parse_song(self, response):
         pre_item = response.meta['pre_item']
+        index = response.meta['serial']
 
         mid = response.body.decode()
         midSecond = re.search(r'{.*}', mid).group()
@@ -55,6 +57,7 @@ class AllMusicSpider(scrapy.Spider):
         item['highUrl'] = result['video']['chapters'][0]['url']
         item['subTitle'] = result['title']
         item['imgSrc'] = pre_item['imgSrc']
+        item['serial'] = index
         return item
 
 
