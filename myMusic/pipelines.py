@@ -52,10 +52,13 @@ class MymusicPipeline(object):
                 session.close()
                 DropItem("Album should be input once")
         else:
+            query = session.query(Album).filter(Album.imgSrc == item['imgSrc'])
             song = Song()
+
             song.subTitle = item["subTitle"]
             song.lowUrl = item["lowUrl"]
             song.highUrl = item["highUrl"]
+            song.album_id = query.first().id
             try:
                 session.add(song)
                 session.commit()
